@@ -31,9 +31,9 @@ def _zip_code(path):
     zip_handler.close()
     return open(zip_name, 'rb').read()
 
-def deploy_lambda(env):
-    common = config['common']
-    env_config = config[env]
+def deploy_lambda(lambda_name, env):
+    common = config[lambda_name]['common']
+    env_config = config[lambda_name][env]
     lambda_client = _get_client('lambda', env)
     lambda_name = common['name'] + env
 

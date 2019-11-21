@@ -1,4 +1,4 @@
-Travel Time Collector
+# Travel Time Collector
 
 This is used to collect and compare the travel time between two sets of source
 and destination.  The lambda just collects the data and writes it to s3.
@@ -16,8 +16,7 @@ they can be zipped up with the lambda.
 $ cd ops
 $ python -m venv ../venv
 $ source ../venv/bin/activate
-$ pip install boto3
-$ pip install googlemaps
+$ pip install boto3 googlemaps pytz
 $ deactivate
 ```
 
@@ -25,7 +24,7 @@ $ deactivate
 In order for the deploy script to know where to deploy to, you need to add a config.py
 file under the ops directory.  There is an example config given.
 
-### Deploy to env given in config
+### Deploy time_collectors to env given in config
 When you deploy you need to give the name of an evn given in the config.  This lets
 multiple env be stored in the config
 ```
