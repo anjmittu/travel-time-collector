@@ -1,41 +1,63 @@
 config = {
-    'common': {
-        'name': 'travel-time-collector-',
-        'runtime': 'python3.7',
-        'handler': 'handler.lambda_handler',
-        'description': 'Collecting and storing travel times',
-        'code-path': '../lambda',
-        'timeout': 299,
-        'memory': 1024
-    },
-    'to_work': {
-        'profile': '',
-        'role': '',
-        'vpc': {},
-        'env': {
-            'Variables': {
-                'google_key': "",
-                'start_1': '',
-                'end_1': '',
-                'start_2': '',
-                'end_2': '',
-                "journey_type": "to_work"
+    'direction_lambda': {
+        'common': {
+            'name': 'travel-time-collector-',
+            'runtime': 'python3.7',
+            'handler': 'handler.lambda_handler',
+            'description': 'Collecting and storing travel times',
+            'code-path': '../lambda',
+            'timeout': 299,
+            'memory': 1024
+        },
+        'to_work': {
+            'profile': '',
+            'role': '',
+            'vpc': {},
+            'env': {
+                'Variables': {
+                    'google_key': "",
+                    'start_1': '',
+                    'end_1': '',
+                    'start_2': '',
+                    'end_2': '',
+                    "journey_type": "to_work"
+                }
+            }
+        },
+        'to_home': {
+            'profile': '',
+            'role': '',
+            'vpc': {},
+            'env': {
+                'Variables': {
+                    'google_key': "",
+                    'start_1': '',
+                    'end_1': '',
+                    'start_2': '',
+                    'end_2': '',
+                    "journey_type": "to_home"
+                }
             }
         }
     },
-    'to_home': {
-        'profile': '',
-        'role': '',
-        'vpc': {},
-        'env': {
-            'Variables': {
-                'google_key': "",
-                'start_1': '',
-                'end_1': '',
-                'start_2': '',
-                'end_2': '',
-                "journey_type": "to_home"
+    'time_collector': {
+        'common': {
+            'name': 'data-collector-',
+            'runtime': 'python3.7',
+            'handler': 'handler.lambda_handler',
+            'description': 'Collecting and storing travel times',
+            'code-path': '../data_collector',
+            'timeout': 499,
+            'memory': 1024
+        },
+        'aws': {
+            'profile': '',
+            'role': '',
+            'vpc': {},
+            'env': {
+                'Variables': {}
             }
         }
     }
+
 }
