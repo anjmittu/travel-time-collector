@@ -24,7 +24,7 @@ def _zip_code(path):
         for f in files:
             path = os.path.join(root, f)
             zip_handler.write(path, path.split('/', 2)[2])
-    for root, dirs, files in os.walk("../venv/lib/python3.7/site-packages/"):
+    for root, dirs, files in os.walk("../venv/lib/python3.6/site-packages/"):
         for f in files:
             path = os.path.join(root, f)
             zip_handler.write(path, path.split('/', 5)[5])
